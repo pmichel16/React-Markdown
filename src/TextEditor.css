@@ -1,0 +1,21 @@
+#editor-container {
+  position: absolute;
+  left: 20%;
+  top: 5%;
+  z-index: 9;
+  width: 60vw;
+}
+
+#editor-header {
+  padding-top: 1em;
+  background-color: #006630;
+  width: 100%;
+}
+
+#editor {
+  height: 10em;
+  width: 60vw;
+  padding: 0;
+  border: 0;
+  resize: vertical;
+}
