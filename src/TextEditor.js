@@ -1,6 +1,8 @@
 import React from 'react';
 import MarkdownOutput from './MarkdownOutput.js'
-import './TextEditor.css'
+import { dragElement } from './dragElement.js'
+import './Text.css'
+
 
 const origText = '# Markdown Previewer\nThis is a Markdown previewer built with React and the marked package' +
   '(https://cdnjs.com/libraries/marked). You can ' +
@@ -20,11 +22,17 @@ class TextEditor extends React.Component {
       input: event.target.value
     })
   }
+
+  //Make the editor draggable.
+  componentDidMount() {
+    dragElement(document.getElementById("editor-header"), document.getElementById("editor-container"));
+  }
+
   render() {
     return (
       <div>
-        <div id="editor-container">
-          <div id="editor-header"></div>
+        <div id="editor-container" className="container">
+          <div id="editor-header" className="header"></div>
           <textarea id="editor" value={this.state.input} onChange={this.updateText}></textarea>
         </div>
         <MarkdownOutput text={this.state.input} />

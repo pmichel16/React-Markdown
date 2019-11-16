@@ -1,0 +1,33 @@
+.container {
+  position: absolute;
+  left: 20%;
+  display: flex;
+  background-color: #006630;
+  flex-direction: column;
+  z-index: 9;
+  resize: both;
+  box-shadow: 10px 8px 10px 2px rgba(0,0,0,0.5);
+}
+
+#editor-container {
+  top: 5%;
+}
+
+#output-container {
+  top: 55%;
+}
+
+.header {
+  padding-top: 1em;
+  background-color: #006630;
+  width: 100%;
+  cursor: move;
+  z-index: 10;
+}
+
+#editor {
+  height: 10em;
+  width: 60vw;
+  padding: 0;
+  border: 0;                        
+}

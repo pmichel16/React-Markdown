@@ -1,6 +1,7 @@
 import React from 'react';
 import marked from 'marked';
-import './MarkdownOutput.css';
+import { dragElement } from './dragElement.js'
+import './Text.css';
 
 class MarkdownOutput extends React.Component {
   constructor(props) {
@@ -11,15 +12,17 @@ class MarkdownOutput extends React.Component {
     const markedText = marked(this.props.text, { sanitize: true });
     return { __html: markedText };
   }
+  componentDidMount() {
+    dragElement(document.getElementById("output-header"), document.getElementById("output-container"));
+  }
   render() {
     return (
-      <div>
-        <div id="output-container"> 
-          <p>Input text:</p>
-          <p dangerouslySetInnerHTML={this.markdownText()}></p>
-        </div>
+      <div id="output-container" className="container">
+        <div id="output-header" className="header"></div>
+        <p>Input text:</p>
+        <p dangerouslySetInnerHTML={this.markdownText()}></p>
       </div>
-      )
+    )
   }
 }
 

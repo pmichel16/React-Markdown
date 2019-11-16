@@ -1,12 +1,11 @@
 /*
+ * Make a window draggable by clicking on its header.
  * Adapted from: https://www.w3schools.com/howto/howto_js_draggable.asp
  */
-// Make the DIV element draggable:
-dragElement($("#editor-header"));
 
-function dragWindow(elmt) {
+export function dragElement(header, container) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  elmt.onmousedown = dragMouseDown;
+  header.onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
     e = e || window.event;
@@ -28,8 +27,15 @@ function dragWindow(elmt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    container.style.top = (container.offsetTop - pos2) + "px";
+    container.style.left = (container.offsetLeft - pos1) + "px";
+    //Make sure the window doesn't go off the page
+    if (parseFloat(container.style.top) < 0) {
+      container.style.top = "0px";
+    }
+    if (parseFloat(container.style.left) < 0) {
+      container.style.left = "0px";
+    }
   }
 
   function closeDragElement() {
