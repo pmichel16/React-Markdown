@@ -7,27 +7,64 @@
   z-index: 9;
   resize: both;
   box-shadow: 10px 8px 10px 2px rgba(0,0,0,0.5);
+  border: 3px solid #006630;
 }
 
-#editor-container {
+.editor-container {
   top: 5%;
 }
 
-#output-container {
-  top: 55%;
+.output-container {
+  top: 35%;
 }
 
 .header {
-  padding-top: 1em;
+  height: 1em;
   background-color: #006630;
   width: 100%;
   cursor: move;
   z-index: 10;
 }
 
-#editor {
+.editor {
   height: 10em;
   width: 60vw;
   padding: 0;
-  border: 0;                        
+  border: 0;
+  min-width: 7em;
+}
+
+.output {
+  background-color: white;
+  width: 60vw;
+  resize: both;
+  overflow: auto;
+}
+
+.split-horiz-editor {
+  height: 47.5vh;
+  left: 0;
+  top: 5%;
+  width: 100%;
+}
+
+.split-horiz-output {
+  height: 47.5vh;
+  left: 0;
+  width: 100%;
+  top: 52.5%;
+}
+
+.split-vert-editor {
+  height: 95vh;
+  width: 50vw;
+  left: 0;
+  top: 5%;
+}
+
+.split-vert-output {
+  height: 95vh;
+  width: 50vw;
+  left: 50%;
+  top: 5%;
 }

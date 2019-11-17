@@ -1,41 +1,29 @@
 import React from 'react';
-import MarkdownOutput from './MarkdownOutput.js'
-import { dragElement } from './dragElement.js'
-import './Text.css'
-
-
-const origText = '# Markdown Previewer\nThis is a Markdown previewer built with React and the marked package' +
-  '(https://cdnjs.com/libraries/marked). You can ' +
-  'write in **bold**, _italic_, or _**both**_! \nIn addition to the header above, you can write\n## Sub-Headers\n' +
-  '### and Sub-Sub-Headers'
+import { dragElement } from './dragElement.js';
+import './Text.css';
+import classNames from 'classnames';
 
 class TextEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: origText
-    };
-    this.updateText = this.updateText.bind(this);
-  }
-  updateText(event) {
-    this.setState({
-      input: event.target.value
-    })
   }
 
-  //Make the editor draggable.
   componentDidMount() {
-    dragElement(document.getElementById("editor-header"), document.getElementById("editor-container"));
+    //Make the editor draggable if it is in window form.
+    if (this.props.window) {
+      dragElement(document.getElementById("editor-header"), document.getElementById("editor-container"));
+    }
   }
 
   render() {
+    var splitClass = classNames({
+      'split-horiz-editor': this.props.splitH,
+      'split-vert-editor': this.props.splitV
+    });
     return (
-      <div>
-        <div id="editor-container" className="container">
-          <div id="editor-header" className="header"></div>
-          <textarea id="editor" value={this.state.input} onChange={this.updateText}></textarea>
-        </div>
-        <MarkdownOutput text={this.state.input} />
+      <div id="editor-container" className={"container editor-container " + splitClass}>
+        <div id="editor-header" className="header"></div>
+        <textarea value={this.props.input} onChange={this.props.updateText} className={"editor " + splitClass}></textarea>
       </div>
     );
   }
