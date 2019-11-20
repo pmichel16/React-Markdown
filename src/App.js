@@ -16,12 +16,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       input: origText,
-      window: true,
-      splitH: false,
-      splitV: false
+      windowSplit: "window"
     };
     this.updateText = this.updateText.bind(this);
-    this.window = this.window.bind(this);
+    this.splitWindow = this.splitWindow.bind(this);
     this.splitHoriz = this.splitHoriz.bind(this);
     this.splitVert = this.splitVert.bind(this);
   }
@@ -32,25 +30,19 @@ class App extends React.Component {
     })
   }
 
-  window() {
+  splitWindow() {
     this.setState({
-      window: true,
-      splitH: false,
-      splitV: false
+      windowSplit: "window"
     })
   }
   splitHoriz() {
     this.setState({
-      window: false,
-      splitH: true,
-      splitV: false
+      windowSplit: "horiz"
     })
   }
   splitVert() {
     this.setState({
-      window: false,
-      splitH: false,
-      splitV: true
+      windowSplit: "vert"
     })
   }
 
@@ -60,15 +52,12 @@ class App extends React.Component {
         <TextEditor
           input={this.state.input}
           updateText={this.updateText}
-          window={this.state.window}
-          splitH={this.state.splitH}
-          splitV={this.state.splitV}/>
+          windowSplit={this.state.windowSplit}/>
         <MarkdownOutput
           text={this.state.input} 
-          window={this.state.window}
-          splitH={this.state.splitH}
-          splitV={this.state.splitV}/>
+          windowSplit={this.state.windowSplit}/>
         <SizeButtons
+          splitWindow={this.splitWindow}
           splitHoriz={this.splitHoriz}
           splitVert={this.splitVert}/>
         { /*<img src={logo} alt="Logo" height="100px" width="100px" /> */}

@@ -8,7 +8,7 @@ class SizeButtons extends React.Component {
   render() {
     return (
       <div id="buttons-container">
-        <button>Windows</button>
+        <button onClick={this.props.splitWindow}>Windows</button>
         <button onClick={this.props.splitHoriz}>Split Horizontally</button>
         <button onClick={this.props.splitVert}>Split Vertically</button>
       </div>

@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "http://pmichel16.github.io/React-Markdown",
   "dependencies": {
-    "classnames": "^2.2.6",
     "marked": "^0.7.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

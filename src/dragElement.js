@@ -43,5 +43,15 @@ export function dragElement(header, container) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
 
+/*
+ * Make an element no longer draggable.
+ */
+export function removeDrag(header, container) {
+  container.style.top = null;
+  container.style.left = null;
+  header.style.top = null;
+  header.style.left = null;
+  header.onmousedown = null;
 }

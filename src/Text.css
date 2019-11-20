@@ -1,21 +1,72 @@
 .container {
   position: absolute;
-  left: 20%;
   display: flex;
   background-color: #006630;
   flex-direction: column;
   z-index: 9;
   resize: both;
   box-shadow: 10px 8px 10px 2px rgba(0,0,0,0.5);
-  border: 3px solid #006630;
+  outline: 3px solid #006630;
 }
 
-.editor-container {
+.editor-container-window {
   top: 5%;
+  left: 20%;
+  width: 60%;
+  height: 10em;
+}
+.editor-container-horiz {
+  top: 5%;
+  left: 0;
+  width: 100%;
+  height: 47.5%;
+}
+.editor-container-vert {
+  top: 5%;
+  left: 0;
+  height: 95%;
+  width: 50%;
 }
 
-.output-container {
+.output-container-window {
   top: 35%;
+  left: 20%;
+  width: 60%;
+}
+.output-container-horiz {
+  top: 52.5%;
+  left: 0;
+  width: 100%;
+  height: 47.5%;
+}
+.output-container-vert {
+  top: 5%;
+  left: 50%;
+  width: 50%;
+  height: 95%;
+}
+
+
+#editor {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  min-width: 7em;
+}
+.editor-window {
+  resize: both;
+}
+
+
+#output {
+  background-color: white;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+.output-window {
+  resize: both;
 }
 
 .header {
@@ -26,45 +77,3 @@
   z-index: 10;
 }
 
-.editor {
-  height: 10em;
-  width: 60vw;
-  padding: 0;
-  border: 0;
-  min-width: 7em;
-}
-
-.output {
-  background-color: white;
-  width: 60vw;
-  resize: both;
-  overflow: auto;
-}
-
-.split-horiz-editor {
-  height: 47.5vh;
-  left: 0;
-  top: 5%;
-  width: 100%;
-}
-
-.split-horiz-output {
-  height: 47.5vh;
-  left: 0;
-  width: 100%;
-  top: 52.5%;
-}
-
-.split-vert-editor {
-  height: 95vh;
-  width: 50vw;
-  left: 0;
-  top: 5%;
-}
-
-.split-vert-output {
-  height: 95vh;
-  width: 50vw;
-  left: 50%;
-  top: 5%;
-}
