@@ -2,7 +2,6 @@ import React from 'react';
 import marked from 'marked';
 import { dragElement, removeDrag } from './dragElement.js'
 import './Text.css';
-import classNames from 'classnames'; 
 
 class MarkdownOutput extends React.Component {
   constructor(props) {
