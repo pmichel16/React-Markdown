@@ -1,0 +1,29 @@
+#buttons-container {
+  width: 60%;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1vh;
+}
+
+buttons-container::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0,0,0,0.6);
+}
+
+button {
+  width: 33%;
+  outline: 2px solid #663f00;
+  border: none;
+  background-color: white;
+  height: 3vh;
+}
+
+  button:hover {
+    background-color: #fff8eb;
+    cursor: pointer;
+  }

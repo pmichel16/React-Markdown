@@ -1,6 +1,7 @@
 import React from 'react';
 import { dragElement, removeDrag } from './dragElement.js';
 import './Text.css';
+import classNames from 'classnames';
 
 class TextEditor extends React.Component {
   constructor(props) {
@@ -23,28 +24,19 @@ class TextEditor extends React.Component {
   }
  
   render() {
-    if (this.props.windowSplit === "window") {
+    //Update class
+    var containerClass = classNames(
+      "container",
+      { "editor-container-window": this.props.windowSplit === "window" },
+      { "editor-container-horiz": this.props.windowSplit === "horiz" },
+      { "editor-container-vert": this.props.windowSplit === "vert" }
+    );
       return (
-        <div id="editor-container" className="container editor-container-window">
+        <div id="editor-container" className={containerClass}>
           <div id="editor-header" className="header"></div>
-          <textarea id="editor" value={this.props.input} onChange={this.props.updateText} className="editor"></textarea>
+          <textarea id="editor" value={this.props.input} onChange={this.props.updateText}></textarea>
         </div>
       );
-    } else if (this.props.windowSplit === "horiz") {
-      return (
-        <div id="editor-container" className="container editor-container-horiz">
-          <div id="editor-header" className="header"></div>
-          <textarea id="editor" value={this.props.input} onChange={this.props.updateText} className="editor-horiz"></textarea>
-        </div>
-      );
-    } else {
-      return (
-        <div id="editor-container" className="container editor-container-vert">
-          <div id="editor-header" className="header"></div>
-          <textarea id="editor" value={this.props.input} onChange={this.props.updateText} className="editor-vert"></textarea>
-        </div>
-      );
-    }
   }
 }
 

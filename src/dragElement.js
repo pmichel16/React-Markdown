@@ -36,6 +36,9 @@ export function dragElement(header, container) {
     if (parseFloat(container.style.left) < 0) {
       container.style.left = "0px";
     }
+    if (parseFloat(container.style.left)+parseFloat(container.style.width) > parseFloat(document.getElementById("root").style.width)) {
+      container.style.left = parseFloat(document.getElementById("root").style.width) - parseFloat(container.style.width) + 'px';
+    }
   }
 
   function closeDragElement() {
@@ -46,11 +49,13 @@ export function dragElement(header, container) {
 }
 
 /*
- * Make an element no longer draggable.
+ * Make an element no longer draggable, and remove its resizing.
  */
 export function removeDrag(header, container) {
   container.style.top = null;
   container.style.left = null;
+  container.style.width = null;
+  container.style.height = null;
   header.style.top = null;
   header.style.left = null;
   header.onmousedown = null;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './sizeButtons.css'
+import './sizeButtons.css';
 
 class SizeButtons extends React.Component {
   constructor(props) {
